@@ -24,7 +24,7 @@ resource azurerm_app_service "app-service1" {
   location            = var.location
   name                = "terragoat-app-service-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name = azurerm_resource_group.example.name
-  https_only          = false
+  https_only          = true
   site_config {
     min_tls_version = "1.1"
   }
@@ -37,6 +37,9 @@ resource azurerm_app_service "app-service1" {
     git_org              = "bridgecrewio"
     git_repo             = "terragoat"
     yor_trace            = "13be096d-c599-46e5-bf54-51c6e9732858"
+  }
+  auth_settings {
+    enabled = true
   }
 }
 
