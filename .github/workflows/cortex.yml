@@ -54,3 +54,4 @@ jobs:
           code scan \
           --directory . \
           --repo-id ${{github.repository}}
+          --log-level DEBUG
